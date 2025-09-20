@@ -48,6 +48,8 @@ describe('Travel Insurance Test Suite', () => {
     travelPage.enterTravellerDOBs();
 
     travelPage.logThreeLowestPlans();
+
+    travelPage.fillTravellerForms();
   });
 });
 describe('Health Insurance Navigation Test Suite', () => {

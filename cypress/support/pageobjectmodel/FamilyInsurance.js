@@ -73,4 +73,43 @@ export class TravelInsurancePage {
       });
       cy.contains('button', 'Continue').should('be.visible').click();
   }
+   fillTravellerForms() {
+    cy.get('#fullName').type('Fghj');
+    cy.get('#email').type('test@example.com');
+    cy.get('#passportNumber').type('A1234567');
+    cy.get('#pincode').type('600119');
+    cy.get('label[for="gender-0-1"]').should('be.visible').click({ force: true });
+    cy.get('label[for="gender-0-1"]').should('be.visible').click({ force: true });
+    cy.get('label[for="gender-0-1"]').should('be.visible')
+      .click({ force: true });
+      cy.wait(500);
+    cy.get('#gender-0-1').should('exist').and('be.visible')
+      .and('have.prop', 'checked', true);
+    cy.get('#nomineeName').type('Fhhk1');
+    cy.get('.p-dropdown-trigger').eq(0).scrollIntoView().should('be.visible')
+      .click({ force: true }).wait(500).click();
+    cy.get('body')
+      .find('.p-dropdown-item')
+      .should('have.length.greaterThan', 0)
+      .first()
+      .should('be.visible')
+      .click({ force: true });
+    cy.get('#fullName2').type('Alice Smith');
+      cy.get('#passportNumber2').type('B7654321');
+      cy.get('#gender-1-0').check().should('be.checked');
+      cy.get('#nomineeName2').type('Bob Smith');
+      cy.get('.p-dropdown-trigger').eq(1).scrollIntoView().should('be.visible').click({ force: true })
+        .wait(500).click();
+
+      cy.get('body')
+        .find('.p-dropdown-item')
+        .should('have.length.greaterThan', 0)
+        .first()
+        .should('be.visible')
+        .click({ force: true });
+
+          cy.get('.purspose-travel').within(() => {
+            cy.get('input[type="radio"]').eq(1).check().should('be.checked');
+          });
+        }
 }
