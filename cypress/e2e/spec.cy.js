@@ -58,4 +58,10 @@ describe('Health Insurance Navigation Test Suite', () => {
     HealthInsurancePage.waitForDropdownVisible();
     HealthInsurancePage.clickHealthInsuranceLabel();
   });
+  it('Story 13: Extract and store all Health Insurance submenu items', () => {
+    HealthInsurancePage.expandGeneralDropdown();
+    HealthInsurancePage.clickHealthInsuranceLabel();
+    HealthInsurancePage.waitForDropdownVisible();
+    HealthInsurancePage.extractSubmenuItems();
+  });
 });

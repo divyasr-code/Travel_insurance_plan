@@ -21,4 +21,12 @@ class HealthInsurancePage {
       .should('be.visible')
       .click({ force: true });
   }
+  extractSubmenuItems() {
+    cy.get('.dropdown-body.show-header-content.product-second-section-old.scrollbar-thin', { timeout: 10000 })
+      .find('span')
+      .should('have.length.greaterThan', 0)
+      .each(($el, index) => {
+        cy.log(`Submenu ${index + 1}: ${$el.text().trim()}`);
+      });
+  }
 }
