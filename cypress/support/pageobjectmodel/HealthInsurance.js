@@ -29,4 +29,17 @@ class HealthInsurancePage {
         cy.log(`Submenu ${index + 1}: ${$el.text().trim()}`);
       });
   }
+  clickRightPanelHealthLink() {
+    cy.get('.product-name-old-header', { timeout: 10000 })
+      .contains('Health Insurance')
+      .should('exist')
+      .click({ force: true });
+  }
+ 
+  validateHealthInsurancePage() {
+    cy.url().should('include', 'health-insurance');
+    cy.contains(/Health Insurance/i).should('exist');
+  }
 }
+ 
+export default new HealthInsurancePage();

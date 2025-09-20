@@ -70,4 +70,11 @@ describe('Health Insurance Navigation Test Suite', () => {
     HealthInsurancePage.waitForDropdownVisible();
     HealthInsurancePage.extractSubmenuItems();
   });
+  it('Story 14: Click Health Insurance link from right-side panel and verify page loads', () => {
+    HealthInsurancePage.expandGeneralDropdown();
+    HealthInsurancePage.clickHealthInsuranceLabel();
+    HealthInsurancePage.clickRightPanelHealthLink();
+    HealthInsurancePage.validateHealthInsurancePage();
+  });
+
 });
