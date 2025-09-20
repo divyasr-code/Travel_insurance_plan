@@ -44,6 +44,8 @@ describe('Travel Insurance Test Suite', () => {
     travelPage.selectTravellersAndEnterMobile();
 
     travelPage.enterTravellerDOBs();
+
+    travelPage.logThreeLowestPlans();
   });
 });
 describe('Health Insurance Navigation Test Suite', () => {
