@@ -23,7 +23,14 @@ describe('GoDigit Car Insurance Quote Flow', () => {
     travelPlan.continueToDetails();
    });
    //3 user story
-  travelPlan.enterInvalidContactDetails();
+    travelPlan.enterInvalidContactDetails();
+   //4 user story
+    travelPlan.enterValidContactDetails(testData.ownerName, testData.mobileNumber, testData.email);
+    travelPlan.selectInsurer(testData.insurerName);
+    travelPlan.enterNomineeDetails(testData.nomineeName, testData.nomineeRelation);
+    travelPlan.enterVehicleDetails(testData.engineNumber, testData.chassisNumber);
+    travelPlan.addOptionalAddon();
+    travelPlan.finalPayNow();
    
 });
 describe('Travel Insurance Test Suite', () => {

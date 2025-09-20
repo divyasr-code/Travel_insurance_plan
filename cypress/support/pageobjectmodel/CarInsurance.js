@@ -86,6 +86,38 @@ class TravelPlan {
     cy.contains('Enter valid email id').should('be.visible');
     cy.contains('Enter valid Mobile Number').should('be.visible');
   }
+    enterValidContactDetails(ownerName, mobileNumber, email) {
+    cy.get('#vehicleOwnerName').type(ownerName);
+    cy.get('#mobileNumber').clear().type(mobileNumber);
+    cy.get('#email').clear().type(email);
+  }
+ 
+  selectInsurer(insurerName) {
+    cy.get('#odInsurer').click();
+    cy.get('.px-2_5').type(insurerName);
+    cy.contains('Go Digit General Insurance Limited').click();
+    cy.get('#odPolicyNumber').type('POL123456789');
+  }
+ 
+  enterNomineeDetails(nomineeName, nomineeRelation) {
+    cy.get('#nomineeName').type(nomineeName);
+    cy.get('.p-dropdown-trigger').should('be.visible').click();
+    cy.get('.p-dropdown-panel').should('be.visible');
+    cy.get('.p-dropdown-item').contains(nomineeRelation).should('be.visible').click({ force: true });
+  }
+ 
+  enterVehicleDetails(engineNumber, chassisNumber) {
+    cy.get('#engineNumber').click({ force: true }).type(engineNumber);
+    cy.get('#chasisNumber').click({ force: true }).type(chassisNumber);
+  }
+ 
+  addOptionalAddon() {
+    cy.contains('Add to Plan').click({ force: true });
+  }
+ 
+  finalPayNow() {
+    cy.contains('Pay now').click({ force: true });
+  }
 
   
 }
