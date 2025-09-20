@@ -112,4 +112,41 @@ export class TravelInsurancePage {
             cy.get('input[type="radio"]').eq(1).check().should('be.checked');
           });
         }
+      validateFormFields() {
+      cy.get('#email').invoke('val').then(email => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          cy.log(`Invalid email: ${email}`);
+          cy.get('#email').clear().type('test@example.com');
+        }
+      });
+
+      cy.get('#passportNumber').invoke('val').then(passport => {
+        const passportRegex = /^[A-Z0-9]{6,9}$/;
+        if (!passportRegex.test(passport)) {
+          cy.log(`Invalid passport: ${passport}`);
+          cy.get('#passportNumber').clear().type('A1234567');
+        }
+      });
+
+      cy.get('#pincode').invoke('val').then(pincode => {
+        const pincodeRegex = /^[1-9][0-9]{5}$/;
+        if (!pincodeRegex.test(pincode)) {
+          cy.log(`Invalid pincode: ${pincode}`);
+          cy.get('#pincode').clear().type('600119');
+        }
+      });
+
+      cy.get('#nomineeName').invoke('val').then(nominee => {
+        const nameRegex = /^[A-Za-z\s]+$/;
+        if (!nameRegex.test(nominee)) {
+          cy.log(`Invalid nominee name: ${nominee}`);
+          cy.get('#nomineeName').clear().type('John Doe');
+        }
+      });
+      cy.get('#email').should('not.have.value', '');
+      cy.get('#passportNumber').should('not.have.value', '');
+      cy.get('#pincode').should('not.have.value', '');
+      cy.get('#nomineeName').should('not.have.value', '');
+  }
 }
