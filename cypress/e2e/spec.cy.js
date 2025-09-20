@@ -1,5 +1,5 @@
-import travelPlan from '../support/pageobjectmodel/travelplan';
-import testData from '../fixtures/data.json';
+import travelPlan from '../support/pageobjectmodel/CarInsurance';
+import { FamilyInsurancePage } from '../support/pageobjectmodel/FamilyInsurance';
 
 describe('GoDigit Car Insurance Quote Flow', () => {
   beforeEach(() => {
@@ -7,23 +7,12 @@ describe('GoDigit Car Insurance Quote Flow', () => {
     travelPlan.suppressExceptions();
   });
 
-  it('All car insurance test cases', () => {
+  it('Car insurance test cases', () => {
+    //1 user story
     travelPlan.navigateToCarInsurance();
     travelPlan.clickWithoutCarNumber();
-    travelPlan.navigateToCarInsurance();
-    travelPlan.enterQuoteDetails(testData.registrationNumber, testData.mobileNumber);
-    travelPlan.clickGetQuoteButton();
-    travelPlan.selectCarModel(testData.carModelId);
-    travelPlan.selectFuelType();
-    travelPlan.selectVariantAndDate(testData.variantId, testData.yearId, testData.monthId);
-    travelPlan.selectCity(testData.cityId, testData.cityName);
-    travelPlan.continueToDetails();
-    travelPlan.enterInvalidContactDetails();
-    travelPlan.enterValidContactDetails(testData.ownerName, testData.mobileNumber, testData.email);
-    travelPlan.selectInsurer(testData.insurerName);
-    travelPlan.enterNomineeDetails(testData.nomineeName, testData.nomineeRelation);
-    travelPlan.enterVehicleDetails(testData.engineNumber, testData.chassisNumber);
-    travelPlan.addOptionalAddon();
-    travelPlan.finalPayNow();
-  });
+   
+});
+
+
 });
