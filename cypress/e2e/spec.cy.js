@@ -39,6 +39,11 @@ describe('Travel Insurance Test Suite', () => {
     travelPage.selectEuropeanCountry()
 
     travelPage.fillTravelDatesAndDuration();
+
+    
+    travelPage.selectTravellersAndEnterMobile();
+
+    travelPage.enterTravellerDOBs();
   });
 });
 describe('Health Insurance Navigation Test Suite', () => {
