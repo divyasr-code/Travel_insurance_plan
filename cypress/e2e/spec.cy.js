@@ -1,5 +1,6 @@
 import travelPlan from '../support/pageobjectmodel/CarInsurance';
 import { TravelInsurancePage } from '../support/pageobjectmodel/travelplan';
+import { HealthInsurancePage } from '../support/pageobjectmodel/HealthInsurance';
 
 describe('GoDigit Car Insurance Quote Flow', () => {
   beforeEach(() => {
@@ -28,5 +29,16 @@ describe('Travel Insurance Test Suite', () => {
     travelPage.selectEuropeanCountry()
 
     travelPage.fillTravelDatesAndDuration();
+  });
+});
+describe('Health Insurance Navigation Test Suite', () => {
+  beforeEach(() => {
+    HealthInsurancePage.visitHomePage();
+  });
+ 
+  it('Story 12: G-H-V Flow - Access Health Insurance from General dropdown', () => {
+    HealthInsurancePage.expandGeneralDropdown();
+    HealthInsurancePage.waitForDropdownVisible();
+    HealthInsurancePage.clickHealthInsuranceLabel();
   });
 });
