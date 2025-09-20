@@ -24,5 +24,9 @@ describe('Travel Insurance Test Suite', () => {
     travelPage.navigateToTravelInsurance();
 
     travelPage.selectSingleTripOption();
+
+    travelPage.selectEuropeanCountry()
+
+    travelPage.fillTravelDatesAndDuration();
   });
 });
