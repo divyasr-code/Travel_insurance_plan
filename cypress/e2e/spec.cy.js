@@ -59,6 +59,8 @@ describe('Travel Insurance Test Suite', () => {
     travelPage.fillTravellerForms();
 
     travelPage.validateFormFields();
+
+    travelPage.submitPayment();
   });
 });
 describe('Health Insurance Navigation Test Suite', () => {

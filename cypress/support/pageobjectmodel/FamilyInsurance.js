@@ -149,4 +149,21 @@ export class TravelInsurancePage {
       cy.get('#pincode').should('not.have.value', '');
       cy.get('#nomineeName').should('not.have.value', '');
   }
+  submitPayment() {
+      cy.contains('button', 'Pay now')
+        .should('be.visible')
+        .click({ force: true });
+
+      cy.wait(5000); 
+
+      cy.url().then((url) => {
+        if (!url.includes('payment')) {
+          cy.log('URL did not change to payment page. Checking for payment content...');
+          cy.contains('Payment', { matchCase: false }).should('exist');
+        } else {
+          cy.url().should('include', 'payment');
+        }
+      });
+  }
+
 }
