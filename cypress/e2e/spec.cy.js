@@ -22,6 +22,8 @@ describe('GoDigit Car Insurance Quote Flow', () => {
     travelPlan.selectCity(testData.cityId, testData.cityName);
     travelPlan.continueToDetails();
    });
+   //3 user story
+  travelPlan.enterInvalidContactDetails();
    
 });
 describe('Travel Insurance Test Suite', () => {

@@ -79,7 +79,13 @@ class TravelPlan {
     cy.wait(6000);
     cy.contains('Great choice! A few more details').should('be.visible');
   }
- 
+    enterInvalidContactDetails() {
+    cy.get('#mobileNumber').clear().type('12345');
+    cy.get('#email').clear().type('abc@');
+    cy.contains('Pay now').click();
+    cy.contains('Enter valid email id').should('be.visible');
+    cy.contains('Enter valid Mobile Number').should('be.visible');
+  }
 
   
 }
